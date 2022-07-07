@@ -1,4 +1,6 @@
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -8,7 +10,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    const fontSize30 = TextStyle( fontSize: 30 ); 
+    const fontSize30 = TextStyle( fontSize: 30 );
+
+    int counter = 10;
 
     return Scaffold(
       appBar: AppBar(
@@ -20,9 +24,9 @@ class HomeScreen extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Text('Number clicks', style: fontSize30 ),
-            Text('10', style: fontSize30 ),
+          children: [
+            const Text('Number clicks', style: fontSize30 ),
+            Text( '$counter', style: fontSize30 ),
             ],
         ),
       ),
@@ -30,7 +34,8 @@ class HomeScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: const Icon( Icons.add),
         onPressed: () {
-          print('Hola mundo');
+          print('Hola mundo: $counter');
+          counter++;
         },
       ),
     ); 
